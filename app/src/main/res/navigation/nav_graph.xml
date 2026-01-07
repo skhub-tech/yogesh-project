@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.fitnessapp.ui.auth.LoginFragment"
+        android:label="Login" />
+        
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.fitnessapp.ui.home.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/setupProfileFragment"
+        android:name="com.fitnessapp.ui.profile.SetupProfileFragment"
+        android:label="Setup Profile" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.fitnessapp.ui.profile.ProfileFragment"
+        android:label="Profile" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.fitnessapp.ui.settings.SettingsFragment"
+        android:label="Settings" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.fitnessapp.ui.about.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+
+
+
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="com.fitnessapp.ui.exercises.ExercisesFragment"
+        android:label="Exercise Library" />
+
+    <fragment
+        android:id="@+id/exerciseDetailFragment"
+        android:name="com.fitnessapp.ui.exercises.ExerciseDetailFragment"
+        android:label="Exercise Details">
+        <argument
+            android:name="exercise_name"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/variationDetailFragment"
+        android:name="com.fitnessapp.ui.exercises.VariationDetailFragment"
+        android:label="Variation Details" />
+
+    <fragment
+        android:id="@+id/dietFragment"
+        android:name="com.fitnessapp.ui.diet.DietFragment"
+        android:label="Diet &amp; Nutrition" />
+
+    <fragment
+        android:id="@+id/trackerFragment"
+        android:name="com.fitnessapp.ui.tracker.TrackerFragment"
+        android:label="Progress Tracker" />
+
+    <fragment
+        android:id="@+id/personalRecordsFragment"
+        android:name="com.fitnessapp.ui.tracker.PersonalRecordsFragment"
+        android:label="Personal Records" />
+
+    <fragment
+        android:id="@+id/sparkyFragment"
+        android:name="com.fitnessapp.ui.sparky.SparkyFragment"
+        android:label="Gemini AI Coach" />
+
+</navigation>

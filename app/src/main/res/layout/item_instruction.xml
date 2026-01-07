@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/tvStepNumber"
+        android:text="1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/ic_fitness"
+        android:gravity="center"
+        android:layout_marginEnd="12dp" />
+
+    <TextView
+        android:id="@+id/tvInstructionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Start in plank position"
+        android:textSize="15sp"
+        android:textColor="#424242" />
+
+</LinearLayout>

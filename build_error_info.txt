@@ -1,0 +1,265 @@
+﻿Initialized native services in: E:\Gradle\native
+Initialized jansi services in: E:\Gradle\native
+Found daemon DaemonInfo{pid=16352, address=[461ab93a-2bc7-4c41-888e-24972034d6d2 port:59356, addresses:[/127.0.0.1]], state=Idle, lastBusy=1767762660072, context=DefaultDaemonContext[uid=c4a0f303-e0b9-4c88-9046-e1e14a6341fc,javaHome=C:\Users\sahil\.antigravity\extensions\redhat.java-1.51.0-win32-x64\jre\21.0.9-win32-x86_64,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=E:\Gradle\daemon,pid=16352,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=1024m,-Xmx4096m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=C:\Program Files\Java\jdk-17 (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=1024m, -Xmx4096m, -Dfile.encoding=windows-1252, -Duser.country=US, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=c4a0f303-e0b9-4c88-9046-e1e14a6341fc,javaHome=C:\Users\sahil\.antigravity\extensions\redhat.java-1.51.0-win32-x64\jre\21.0.9-win32-x86_64,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=E:\Gradle\daemon,pid=16352,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=1024m,-Xmx4096m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 2044). The daemon log file: E:\Gradle\daemon\9.0-milestone-1\daemon-2044.out.log
+Starting 5th build in daemon [uptime: 1 mins 55.43 secs, performance: 99%, GC rate: 0.00/s, heap usage: 0% of 4 GiB, non-heap usage: 10% of 1 GiB]
+Using 12 worker leases.
+Now considering [D:\yogesh_ka_project] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'D:\yogesh_ka_project\settings.gradle.kts'.
+Projects loaded. Root project using build file 'D:\yogesh_ka_project\build.gradle.kts'.
+Included projects: [root project 'FitnessApp', project ':app']
+
+> Configure project :
+Evaluating root project 'FitnessApp' using build file 'D:\yogesh_ka_project\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.2.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.0', apply: false]
+Resolved plugin [id: 'com.google.gms.google-services', version: '4.4.0', apply: false]
+
+> Configure project :app
+Evaluating project ':app' using build file 'D:\yogesh_ka_project\app\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application']
+Resolved plugin [id: 'org.jetbrains.kotlin.android']
+Resolved plugin [id: 'com.google.gms.google-services']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+All projects evaluated.
+Task name matched 'assembleDebug'
+Selected primary task 'assembleDebug' from project :
+Tasks to be executed: [task ':app:preBuild', task ':app:preDebugBuild', task ':app:mergeDebugNativeDebugMetadata', task ':app:checkKotlinGradlePluginConfigurationErrors', task ':app:dataBindingMergeDependencyArtifactsDebug', task ':app:generateDebugResValues', task ':app:generateDebugResources', task ':app:processDebugGoogleServices', task ':app:mergeDebugResources', task ':app:packageDebugResources', task ':app:parseDebugLocalResources', task ':app:dataBindingGenBaseClassesDebug', task ':app:dataBindingTriggerDebug', task ':app:checkDebugAarMetadata', task ':app:mapDebugSourceSetPaths', task ':app:createDebugCompatibleScreenManifests', task ':app:extractDeepLinksDebug', task ':app:processDebugMainManifest', task ':app:processDebugManifest', task ':app:processDebugManifestForPackage', task ':app:processDebugResources', task ':app:compileDebugKotlin', task ':app:javaPreCompileDebug', task ':app:compileDebugJavaWithJavac', task ':app:mergeDebugShaders', task ':app:compileDebugShaders', task ':app:generateDebugAssets', task ':app:mergeDebugAssets', task ':app:compressDebugAssets', task ':app:processDebugJavaRes', task ':app:mergeDebugJavaResource', task ':app:checkDebugDuplicateClasses', task ':app:desugarDebugFileDependencies', task ':app:mergeExtDexDebug', task ':app:mergeLibDexDebug', task ':app:dexBuilderDebug', task ':app:mergeProjectDexDebug', task ':app:mergeDebugJniLibFolders', task ':app:mergeDebugNativeLibs', task ':app:stripDebugDebugSymbols', task ':app:validateSigningDebug', task ':app:writeDebugAppMetadata', task ':app:writeDebugSigningConfigVersions', task ':app:packageDebug', task ':app:createDebugApkListingFileRedirect', task ':app:assembleDebug']
+Tasks that were excluded: []
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.HelpTasksPlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_HELPTASKSPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.SoftwareReportingTasksPlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_SOFTWAREREPORTINGTASKSPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.buildinit.plugins.BuildInitPlugin_Decorated expected enum ORG_GRADLE_BUILDINIT_PLUGINS_BUILDINITPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.buildinit.plugins.WrapperPlugin_Decorated expected enum ORG_GRADLE_BUILDINIT_PLUGINS_WRAPPERPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.kotlin.dsl.provider.plugins.KotlinScriptRootPlugin_Decorated expected enum ORG_GRADLE_KOTLIN_DSL_PROVIDER_PLUGINS_KOTLINSCRIPTROOTPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.kotlin.dsl.provider.plugins.KotlinScriptBasePlugin_Decorated expected enum ORG_GRADLE_KOTLIN_DSL_PROVIDER_PLUGINS_KOTLINSCRIPTBASEPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.HelpTasksPlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_HELPTASKSPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.SoftwareReportingTasksPlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_SOFTWAREREPORTINGTASKSPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.buildinit.plugins.BuildInitPlugin_Decorated expected enum ORG_GRADLE_BUILDINIT_PLUGINS_BUILDINITPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.buildinit.plugins.WrapperPlugin_Decorated expected enum ORG_GRADLE_BUILDINIT_PLUGINS_WRAPPERPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.language.base.plugins.LifecycleBasePlugin_Decorated expected enum ORG_GRADLE_LANGUAGE_BASE_PLUGINS_LIFECYCLEBASEPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.BasePlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_BASEPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.JvmEcosystemPlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_JVMECOSYSTEMPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.ReportingBasePlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_REPORTINGBASEPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.JvmToolchainsPlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_JVMTOOLCHAINSPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.api.plugins.JavaBasePlugin_Decorated expected enum ORG_GRADLE_API_PLUGINS_JAVABASEPLUGIN_DECORATED
+Analytics other plugin to proto: Unknown plugin type org.gradle.kotlin.dsl.provider.plugins.KotlinScriptBasePlugin_Decorated expected enum ORG_GRADLE_KOTLIN_DSL_PROVIDER_PLUGINS_KOTLINSCRIPTBASEPLUGIN_DECORATED
+Resolve mutations for :app:preBuild (Thread[Execution worker,5,main]) started.
+:app:preBuild (Thread[Execution worker Thread 9,5,main]) started.
+
+> Task :app:preBuild UP-TO-DATE
+Skipping task ':app:preBuild' as it has no actions.
+Resolve mutations for :app:preDebugBuild (Thread[Execution worker Thread 9,5,main]) started.
+:app:preDebugBuild (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:preDebugBuild UP-TO-DATE
+Skipping task ':app:preDebugBuild' as it has no actions.
+Resolve mutations for :app:mergeDebugNativeDebugMetadata (Thread[Execution worker Thread 8,5,main]) started.
+:app:mergeDebugNativeDebugMetadata (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+Skipping task ':app:mergeDebugNativeDebugMetadata' as it has no source files and no previous output files.
+Resolve mutations for :app:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 8,5,main]) started.
+:app:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':app:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :app:dataBindingMergeDependencyArtifactsDebug (Thread[Execution worker Thread 8,5,main]) started.
+:app:dataBindingMergeDependencyArtifactsDebug (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+Registered task dependencies: app:debugCompileClasspath
+Skipping misunderstood TO dep string: com.google.firebase:firebase-analytics
+Skipping misunderstood TO dep string: com.google.firebase:firebase-auth
+Skipping misunderstood TO dep string: com.google.firebase:firebase-firestore
+Skipping misunderstood TO dep string: com.google.firebase:firebase-messaging
+Starting dependency analysis
+Caching disabled for task ':app:dataBindingMergeDependencyArtifactsDebug' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:dataBindingMergeDependencyArtifactsDebug' as it is up-to-date.
+Resolve mutations for :app:generateDebugResValues (Thread[Execution worker Thread 8,5,main]) started.
+:app:generateDebugResValues (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':app:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :app:generateDebugResources (Thread[Execution worker Thread 8,5,main]) started.
+:app:generateDebugResources (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:generateDebugResources UP-TO-DATE
+Skipping task ':app:generateDebugResources' as it has no actions.
+Resolve mutations for :app:processDebugGoogleServices (Thread[Execution worker Thread 8,5,main]) started.
+:app:processDebugGoogleServices (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :app:processDebugGoogleServices UP-TO-DATE
+Caching disabled for task ':app:processDebugGoogleServices' because:
+  Build cache is disabled
+Skipping task ':app:processDebugGoogleServices' as it is up-to-date.
+Resolve mutations for :app:mergeDebugResources (Thread[Execution worker Thread 8,5,main]) started.
+:app:mergeDebugResources (Thread[Execution worker Thread 8,5,main]) started.
+Resolve mutations for :app:packageDebugResources (Thread[Execution worker Thread 4,5,main]) started.
+:app:packageDebugResources (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :app:packageDebugResources FAILED
+Caching disabled for task ':app:packageDebugResources' because:
+  Build cache is disabled
+Task ':app:packageDebugResources' is not up-to-date because:
+  Task has failed previously.
+The input changes require a full rebuild for incremental task ':app:packageDebugResources'.
+[MergeResources] Inputs are non-incremental full task action.
+
+> Task :app:mergeDebugResources FAILED
+Caching disabled for task ':app:mergeDebugResources' because:
+  Build cache is disabled
+Task ':app:mergeDebugResources' is not up-to-date because:
+  Task has failed previously.
+The input changes require a full rebuild for incremental task ':app:mergeDebugResources'.
+[MergeResources] Inputs are non-incremental full task action.
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hi\values-hi.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-hi_values-hi.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values\values.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values_values.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pt\values-pt.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-pt_values-pt.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-watch-v21\values-watch-v21.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-watch-v21_values-watch-v21.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w360dp-port-v13\values-w360dp-port-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-w360dp-port-v13_values-w360dp-port-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-watch-v20\values-watch-v20.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-watch-v20_values-watch-v20.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-af\values-af.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-af_values-af.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v21\values-v21.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v21_values-v21.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w320dp-land-v13\values-w320dp-land-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-w320dp-land-v13_values-w320dp-land-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-in\values-in.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-in_values-in.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hr\values-hr.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-hr_values-hr.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ja\values-ja.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ja_values-ja.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-es-rUS\values-es-rUS.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-es-rUS_values-es-rUS.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v23\values-v23.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v23_values-v23.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zh-rHK\values-zh-rHK.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-zh-rHK_values-zh-rHK.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sw600dp-v13\values-sw600dp-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sw600dp-v13_values-sw600dp-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ro\values-ro.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ro_values-ro.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sl\values-sl.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sl_values-sl.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v28\values-v28.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v28_values-v28.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v22\values-v22.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v22_values-v22.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-si\values-si.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-si_values-si.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hy\values-hy.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-hy_values-hy.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sk\values-sk.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sk_values-sk.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hu\values-hu.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-hu_values-hu.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pt-rBR\values-pt-rBR.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-pt-rBR_values-pt-rBR.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ru\values-ru.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ru_values-ru.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ky\values-ky.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ky_values-ky.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-lt\values-lt.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-lt_values-lt.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h320dp-port-v13\values-h320dp-port-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-h320dp-port-v13_values-h320dp-port-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v18\values-v18.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v18_values-v18.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ta\values-ta.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ta_values-ta.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v16\values-v16.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v16_values-v16.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ca\values-ca.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ca_values-ca.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h480dp-land-v13\values-h480dp-land-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-h480dp-land-v13_values-h480dp-land-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-lo\values-lo.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-lo_values-lo.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-am\values-am.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-am_values-am.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-iw\values-iw.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-iw_values-iw.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-it\values-it.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-it_values-it.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v17\values-v17.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v17_values-v17.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-b+sr+Latn\values-b+sr+Latn.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-b+sr+Latn_values-b+sr+Latn.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-cs\values-cs.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-cs_values-cs.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v34\values-v34.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v34_values-v34.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fr-rCA\values-fr-rCA.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-fr-rCA_values-fr-rCA.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-de\values-de.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-de_values-de.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v24\values-v24.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v24_values-v24.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-uz\values-uz.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-uz_values-uz.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h360dp-land-v13\values-h360dp-land-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-h360dp-land-v13_values-h360dp-land-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-bn\values-bn.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-bn_values-bn.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-bs\values-bs.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-bs_values-bs.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-az\values-az.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-az_values-az.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-lv\values-lv.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-lv_values-lv.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w600dp-land-v13\values-w600dp-land-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-w600dp-land-v13_values-w600dp-land-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sw\values-sw.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sw_values-sw.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pt-rPT\values-pt-rPT.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-pt-rPT_values-pt-rPT.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-land\values-land.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-land_values-land.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-kk\values-kk.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-kk_values-kk.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-port\values-port.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-port_values-port.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-mr\values-mr.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-mr_values-mr.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rGB\values-en-rGB.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-en-rGB_values-en-rGB.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ms\values-ms.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ms_values-ms.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rCA\values-en-rCA.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-en-rCA_values-en-rCA.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\src\main\res\menu\activity_main_drawer.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\menu_activity_main_drawer.xml.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-bg\values-bg.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-bg_values-bg.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-km\values-km.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-km_values-km.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-th\values-th.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-th_values-th.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-is\values-is.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-is_values-is.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rAU\values-en-rAU.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-en-rAU_values-en-rAU.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-kn\values-kn.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-kn_values-kn.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-nb\values-nb.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-nb_values-nb.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-night-v8\values-night-v8.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-night-v8_values-night-v8.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\src\main\res\drawable\ic_launcher_foreground.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\drawable_ic_launcher_foreground.xml.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-tl\values-tl.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-tl_values-tl.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-mn\values-mn.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-mn_values-mn.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sr\values-sr.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sr_values-sr.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ldrtl-v17\values-ldrtl-v17.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ldrtl-v17_values-ldrtl-v17.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-xlarge-v4\values-xlarge-v4.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-xlarge-v4_values-xlarge-v4.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-small-v4\values-small-v4.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-small-v4_values-small-v4.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-uk\values-uk.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-uk_values-uk.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hdpi-v4\values-hdpi-v4.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-hdpi-v4_values-hdpi-v4.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-my\values-my.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-my_values-my.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v25\values-v25.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v25_values-v25.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ur\values-ur.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ur_values-ur.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir\layout\activity_main.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\layout_activity_main.xml.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-te\values-te.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-te_values-te.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ar\values-ar.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ar_values-ar.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\src\main\res\drawable\ic_info.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\drawable_ic_info.xml.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w400dp-port-v13\values-w400dp-port-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-w400dp-port-v13_values-w400dp-port-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-be\values-be.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-be_values-be.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-es\values-es.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-es_values-es.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-et\values-et.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-et_values-et.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-nl\values-nl.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-nl_values-nl.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-large-v4\values-large-v4.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-large-v4_values-large-v4.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h550dp-port-v13\values-h550dp-port-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-h550dp-port-v13_values-h550dp-port-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zu\values-zu.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-zu_values-zu.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zh-rTW\values-zh-rTW.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-zh-rTW_values-zh-rTW.arsc.flat
+Compiling file D:\yogesh_ka_project\app\src\main\res\mipmap-mdpi\ic_launcher.webp to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\mipmap-mdpi_ic_launcher.webp.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sq\values-sq.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sq_values-sq.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zh-rCN\values-zh-rCN.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-zh-rCN_values-zh-rCN.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fi\values-fi.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-fi_values-fi.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-b+es+419\values-b+es+419.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-b+es+419_values-b+es+419.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-gu\values-gu.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-gu_values-gu.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v31\values-v31.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v31_values-v31.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fa\values-fa.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-fa_values-fa.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h720dp-v13\values-h720dp-v13.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-h720dp-v13_values-h720dp-v13.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rIN\values-en-rIN.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-en-rIN_values-en-rIN.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pa\values-pa.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-pa_values-pa.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-el\values-el.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-el_values-el.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-gl\values-gl.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-gl_values-gl.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sv\values-sv.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-sv_values-sv.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ne\values-ne.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ne_values-ne.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir\layout\fragment_setup_profile.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\layout_fragment_setup_profile.xml.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-da\values-da.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-da_values-da.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-or\values-or.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-or_values-or.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-mk\values-mk.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-mk_values-mk.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir\layout\fragment_profile.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\layout_fragment_profile.xml.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-eu\values-eu.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-eu_values-eu.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rXC\values-en-rXC.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-en-rXC_values-en-rXC.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pl\values-pl.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-pl_values-pl.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ldltr-v21\values-ldltr-v21.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ldltr-v21_values-ldltr-v21.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-as\values-as.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-as_values-as.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v26\values-v26.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-v26_values-v26.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ka\values-ka.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ka_values-ka.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ko\values-ko.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ko_values-ko.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-tr\values-tr.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-tr_values-tr.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ml\values-ml.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-ml_values-ml.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-vi\values-vi.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-vi_values-vi.arsc.flat
+Compiling XML table D:\yogesh_ka_project\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fr\values-fr.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\values-fr_values-fr.arsc.flat
+Compiling xml file D:\yogesh_ka_project\app\src\main\res\navigation\nav_graph.xml to D:\yogesh_ka_project\app\build\intermediates\merged_res\debug\navigation_nav_graph.xml.flat
+
+[Incubating] Problems report is available at: file:///D:/yogesh_ka_project/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.0-milestone-1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+5 actionable tasks: 2 executed, 3 up-to-date
+Watched directory hierarchies: [D:\yogesh_ka_project]
