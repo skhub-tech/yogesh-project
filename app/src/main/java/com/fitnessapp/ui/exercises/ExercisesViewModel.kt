@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fitnessapp.R
 import com.fitnessapp.model.Exercise
 import com.fitnessapp.repository.FitnessRepository
 import kotlinx.coroutines.launch
@@ -56,31 +57,31 @@ class ExercisesViewModel : ViewModel() {
     private fun populateDummyData() {
         val dummyList = listOf(
             // Chest
-            Exercise("1", "Push-ups", "Chest", "Beginner", "A classic bodyweight exercise for chest devleopment."),
-            Exercise("2", "Bench Press", "Chest", "Intermediate", "Compound movement for upper body strength."),
-            Exercise("3", "Incline Dumbbell Press", "Chest", "Intermediate", "Targets the upper chest muscles."),
+            Exercise("1", "Push-ups", "Chest", "Beginner", "A classic bodyweight exercise for chest devleopment.", "", 0.0, R.drawable.pushup),
+            Exercise("2", "Bench Press", "Chest", "Intermediate", "Compound movement for upper body strength.", "", 0.0, R.drawable.bench_press),
+            Exercise("3", "Incline Dumbbell Press", "Chest", "Intermediate", "Targets the upper chest muscles.", "", 0.0, R.drawable.incline_dumbbell_press),
             
             // Back
-            Exercise("4", "Pull-ups", "Back", "Intermediate", "Excellent for building back width and strength."),
-            Exercise("5", "Dumbbell Rows", "Back", "Beginner", "Targets the latissimus dorsi muscles."),
-            Exercise("6", "Deadlift", "Back", "Advanced", "Full body compound movement, heavy on posterior chain."),
+            Exercise("4", "Pull-ups", "Back", "Intermediate", "Excellent for building back width and strength.", "", 0.0, R.drawable.pullup),
+            Exercise("5", "Dumbbell Rows", "Back", "Beginner", "Targets the latissimus dorsi muscles.", "", 0.0, R.drawable.dumbbell_row),
+            Exercise("6", "Deadlift", "Back", "Advanced", "Full body compound movement, heavy on posterior chain.", "", 0.0, R.drawable.deadlift),
 
             // Legs
-            Exercise("7", "Squats", "Legs", "Beginner", "The king of leg exercises."),
-            Exercise("8", "Lunges", "Legs", "Beginner", "Unilateral leg exercise for balance and strength."),
-            Exercise("9", "Leg Press", "Legs", "Beginner", "Machine-based leg exercise."),
+            Exercise("7", "Squats", "Legs", "Beginner", "The king of leg exercises.", "", 0.0, R.drawable.squat),
+            Exercise("8", "Lunges", "Legs", "Beginner", "Unilateral leg exercise for balance and strength.", "", 0.0, R.drawable.lunge),
+            Exercise("9", "Leg Press", "Legs", "Beginner", "Machine-based leg exercise.", "", 0.0, R.drawable.leg_press),
 
             // Shoulders
-            Exercise("10", "Overhead Press", "Shoulders", "Intermediate", "Compound movement for shoulder mass."),
-            Exercise("11", "Lateral Raises", "Shoulders", "Beginner", "Isolates the side deltoids."),
+            Exercise("10", "Overhead Press", "Shoulders", "Intermediate", "Compound movement for shoulder mass.", "", 0.0, R.drawable.overhead_press),
+            Exercise("11", "Lateral Raises", "Shoulders", "Beginner", "Isolates the side deltoids.", "", 0.0, R.drawable.lateral_raise),
 
             // Arms
-            Exercise("12", "Bicep Curls", "Biceps", "Beginner", "Isolation exercise for biceps."),
-            Exercise("13", "Tricep Dips", "Triceps", "Intermediate", "Bodyweight exercise for triceps."),
+            Exercise("12", "Bicep Curls", "Biceps", "Beginner", "Isolation exercise for biceps.", "", 0.0, R.drawable.bicep_curl),
+            Exercise("13", "Tricep Dips", "Triceps", "Intermediate", "Bodyweight exercise for triceps.", "", 0.0, R.drawable.tricep_dip),
 
             // Core
-            Exercise("14", "Plank", "Core", "Beginner", "Isometric core stability exercise."),
-            Exercise("15", "Crunches", "Core", "Beginner", "Targets abdominal muscles.")
+            Exercise("14", "Plank", "Core", "Beginner", "Isometric core stability exercise.", "", 0.0, R.drawable.plank),
+            Exercise("15", "Crunches", "Core", "Beginner", "Targets abdominal muscles.", "", 0.0, R.drawable.crunch)
         )
         _exercises.value = dummyList
     }

@@ -3,137 +3,263 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/background_light">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <!-- Variation Name Header -->
-        <TextView
-            android:id="@+id/tvVariationName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Standard Push-up"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:layout_marginBottom="8dp" />
+        <!-- Hero Image Section with Gradient Overlay -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
 
-        <!-- Difficulty Badge and Target Info -->
+            <!-- Background Image -->
+            <ImageView
+                android:id="@+id/ivHeroImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_fitness"
+                android:background="@drawable/gradient_primary"
+                android:contentDescription="Exercise variation image" />
+
+            <!-- Gradient Overlay -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_overlay" />
+
+            <!-- Variation Name Overlay -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/tvVariationName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Standard Push-up"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/shadow_dark"
+                    android:shadowDx="0"
+                    android:shadowDy="2"
+                    android:shadowRadius="4" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipDifficulty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Beginner"
+                    android:textColor="@color/white"
+                    app:chipBackgroundColor="@color/gradient_green_start"
+                    app:chipMinHeight="32dp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Content Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@color/background_light">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipDifficulty"
+            <!-- Modern Info Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/glass_border">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@color/background_card"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Target Muscles"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_tertiary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTargetMuscles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Chest, Triceps"
+                            android:textSize="14sp"
+                            android:textColor="@color/gradient_purple_start"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/glass_border">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@color/background_card"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Equipment"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_tertiary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvEquipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="None"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Description Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Classic push-up with hands shoulder-width apart"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_secondary"
+                    android:lineSpacingExtra="3dp"
+                    android:padding="18dp"
+                    android:background="@color/background_card" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Visual Section Header -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Beginner"
-                app:chipBackgroundColor="#4CAF50"
-                android:textColor="#FFFFFF" />
+                android:text="How to Perform"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="12dp" />
 
-            <TextView
-                android:id="@+id/tvTargetMuscles"
-                android:layout_width="0dp"
+            <!-- Step Images Carousel -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpStepImages"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabDots"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Chest, Triceps, Shoulders"
-                android:textSize="14sp"
-                android:textColor="#666666"
-                android:layout_marginStart="12dp" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp" />
+
+            <!-- GIF Animation -->
+            <ImageView
+                android:id="@+id/ivAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:contentDescription="Exercise animation" />
+
+            <!-- Instructions Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step-by-Step Instructions"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Add to Workout Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddToWorkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add to My Workout"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:background="@drawable/button_gradient"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_add"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart" />
 
         </LinearLayout>
-
-        <!-- Description -->
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Classic push-up with hands shoulder-width apart"
-            android:textSize="16sp"
-            android:textColor="#424242"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Equipment -->
-        <TextView
-            android:id="@+id/tvEquipment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Equipment: None"
-            android:textSize="14sp"
-            android:textColor="#666666"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Visual Section Header -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How to Perform"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Step Images Carousel -->
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vpStepImages"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginBottom="8dp"
-            android:visibility="gone" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabDots"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
-            android:visibility="gone"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp" />
-
-        <!-- GIF Animation -->
-        <ImageView
-            android:id="@+id/ivAnimation"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="fitCenter"
-            android:layout_marginBottom="16dp"
-            android:visibility="gone"
-            android:contentDescription="Exercise animation" />
-
-        <!-- Instructions Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step-by-Step Instructions"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="12dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvInstructions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false" />
-
-        <!-- Add to Workout Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddToWorkout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add to My Workout"
-            android:textSize="16sp"
-            android:layout_marginTop="24dp"
-            app:cornerRadius="8dp" />
 
     </LinearLayout>
 

@@ -44,11 +44,18 @@ class VariationDetailFragment : Fragment(R.layout.fragment_variation_detail) {
     }
 
     private fun displayVariation(view: View, variation: ExerciseVariation) {
+        // Set hero image if available (use first step image or default gradient)
+        val ivHeroImage = view.findViewById<ImageView>(R.id.ivHeroImage)
+        if (variation.stepImages.isNotEmpty()) {
+            ivHeroImage.setImageResource(variation.stepImages[0])
+            ivHeroImage.scaleType = ImageView.ScaleType.CENTER_CROP
+        }
+        
         // Set text content
         view.findViewById<TextView>(R.id.tvVariationName).text = variation.name
         view.findViewById<TextView>(R.id.tvDescription).text = variation.description
         view.findViewById<TextView>(R.id.tvTargetMuscles).text = variation.targetMuscles
-        view.findViewById<TextView>(R.id.tvEquipment).text = "Equipment: ${variation.equipment}"
+        view.findViewById<TextView>(R.id.tvEquipment).text = variation.equipment // Just equipment name, no "Equipment:" prefix
 
         // Set difficulty chip
         val chipDifficulty = view.findViewById<Chip>(R.id.chipDifficulty)

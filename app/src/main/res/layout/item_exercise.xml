@@ -4,22 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeColor="@color/glass_border"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/background_card">
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_fitness"
-            app:tint="@color/primaryColor"
-            android:layout_marginEnd="16dp"/>
+        <!-- Modern Circular Image -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginEnd="16dp">
+            
+            <ImageView
+                android:id="@+id/ivExerciseImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_fitness"
+                android:scaleType="centerCrop"
+                android:background="@drawable/gradient_primary"/>
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -34,13 +47,13 @@
                 android:text="Exercise Name"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="4dp">
+                android:layout_marginTop="6dp">
 
                 <TextView
                     android:id="@+id/tvMuscleGroup"
@@ -48,13 +61,13 @@
                     android:layout_height="wrap_content"
                     android:text="Muscle Group"
                     android:textSize="14sp"
-                    android:textColor="#757575" />
+                    android:textColor="@color/text_secondary" />
                 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" • "
-                    android:textColor="#757575"/>
+                    android:textColor="@color/text_tertiary"/>
 
                 <TextView
                     android:id="@+id/tvDifficulty"
@@ -62,15 +75,17 @@
                     android:layout_height="wrap_content"
                     android:text="Difficulty"
                     android:textSize="14sp"
-                    android:textColor="@color/secondaryColor" />
+                    android:textColor="@color/gradient_orange_start"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
         
+        <!-- Modern Arrow with gradient tint -->
         <ImageView
-             android:layout_width="24dp"
-             android:layout_height="24dp"
+             android:layout_width="28dp"
+             android:layout_height="28dp"
              android:src="@drawable/ic_arrow_forward"
-             app:tint="#BDBDBD"/>
+             app:tint="@color/gradient_purple_start"/>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

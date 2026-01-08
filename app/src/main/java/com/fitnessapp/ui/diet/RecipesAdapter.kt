@@ -10,9 +10,14 @@ import com.fitnessapp.model.Recipe
 import com.google.android.material.chip.Chip
 
 class RecipesAdapter(
-    private val recipes: List<Recipe>,
+    private var recipes: List<Recipe>,
     private val onRecipeClick: (Recipe) -> Unit
 ) : RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder>() {
+
+    fun updateRecipes(newRecipes: List<Recipe>) {
+        recipes = newRecipes
+        notifyDataSetChanged()
+    }
 
     class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvName: TextView = view.findViewById(R.id.tvRecipeName)

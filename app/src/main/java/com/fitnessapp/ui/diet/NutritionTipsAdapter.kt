@@ -9,8 +9,13 @@ import com.fitnessapp.R
 import com.fitnessapp.model.NutritionTip
 
 class NutritionTipsAdapter(
-    private val tips: List<NutritionTip>
+    private var tips: List<NutritionTip>
 ) : RecyclerView.Adapter<NutritionTipsAdapter.TipViewHolder>() {
+
+    fun updateTips(newTips: List<NutritionTip>) {
+        tips = newTips
+        notifyDataSetChanged()
+    }
 
     class TipViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvTitle: TextView = view.findViewById(R.id.tvTipTitle)

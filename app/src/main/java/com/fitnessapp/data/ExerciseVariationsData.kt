@@ -184,7 +184,11 @@ object ExerciseVariationsData {
                 "Press up until arms extended"
             ),
             targetMuscles = "Chest, Triceps, Shoulders",
-            equipment = "Barbell, Bench"
+            equipment = "Barbell, Bench",
+            stepImages = listOf(
+                com.fitnessapp.R.drawable.bench_flat_step1,
+                com.fitnessapp.R.drawable.bench_flat_step2
+            )
         ),
         ExerciseVariation(
             id = "bench_incline",
@@ -198,7 +202,10 @@ object ExerciseVariationsData {
                 "Press up explosively"
             ),
             targetMuscles = "Upper Chest, Shoulders",
-            equipment = "Barbell, Incline Bench"
+            equipment = "Barbell, Incline Bench",
+            stepImages = listOf(
+                com.fitnessapp.R.drawable.bench_incline_step1
+            )
         ),
         ExerciseVariation(
             id = "bench_decline",

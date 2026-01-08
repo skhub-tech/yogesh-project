@@ -7,5 +7,6 @@ data class Exercise(
     val difficulty: String = "beginner", // beginner, intermediate, advanced
     val description: String = "",
     val videoUrl: String = "",
-    val caloriesBurnedPerMin: Double = 0.0
+    val caloriesBurnedPerMin: Double = 0.0,
+    val imageRes: Int = 0 // Drawable resource ID for exercise image
 )

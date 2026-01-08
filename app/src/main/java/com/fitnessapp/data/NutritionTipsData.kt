@@ -151,6 +151,106 @@ object NutritionTipsData {
             title = "Consistency > Perfection",
             description = "80% clean eating + 20% flexibility. Sustainable diet > extreme restrictions. Indian food is healthy - just control portions and oil. Focus on whole foods.",
             category = "general"
+        ),
+        
+        // ADDITIONAL PROTEIN TIPS
+        NutritionTip(
+            id = "protein_4",
+            title = "Vegetarian Protein Combo",
+            description = "Mix 2 protein sources for better absorption. Dal + Rice, Rajma + Roti, Chickpeas + Wheat give complete protein. Non-veg: Egg + Whole grain roti.",
+            category = "protein"
+        ),
+        NutritionTip(
+            id = "protein_5",
+            title = "Protein Distribution",
+            description = "Spread protein throughout day. Each meal: 20-30g protein. Better than eating all at once. Breakfast, lunch, dinner all should have protein source.",
+            category = "protein"
+        ),
+        
+        // ADDITIONAL HYDRATION TIPS
+        NutritionTip(
+            id = "hydration_4",
+            title = "Signs of Dehydration",
+            description = "Yellow urine = drink more water. Clear/light yellow = good hydration. Also watch for: dry mouth, headaches, tiredness. Drink water consistently.",
+            category = "hydration"
+        ),
+        NutritionTip(
+            id = "hydration_5",
+            title = "Post-Workout Hydration",
+            description = "Drink 500-750ml water after workout. Add pinch of salt + lemon if intense session (electrolytes). Coconut water excellent choice post-workout.",
+            category = "hydration"
+        ),
+        
+        // ADDITIONAL TIMING TIPS
+        NutritionTip(
+            id = "timing_5",
+            title = "Small Frequent Meals",
+            description = "Eat every 3-4 hours. 5-6 small meals better than 2-3 large ones. Keeps metabolism active, prevents overeating, maintains energy levels.",
+            category = "timing"
+        ),
+        
+        // ADDITIONAL INDIAN DIET TIPS
+        NutritionTip(
+            id = "indian_5",
+            title = "Spice Benefits",
+            description = "Indian spices boost health! Turmeric (anti-inflammatory), Cumin (digestion), Ginger (immunity), Cinnamon (blood sugar). Use liberally in cooking.",
+            category = "indian_diet"
+        ),
+        NutritionTip(
+            id = "indian_6",
+            title = "Dal Varieties",
+            description = "Rotate dals for variety. Moong (light, easy digest), Chana (high protein), Masoor (iron-rich), Toor (balanced). Each has unique benefits.",
+            category = "indian_diet"
+        ),
+        NutritionTip(
+            id = "indian_7",
+            title = "Healthy Snacking Indian Style",
+            description = "Smart Indian snacks: Makhana, roasted chana, sprouts salad, cucumber raita, fruit with nuts. Avoid: samosa, pakora, chips daily.",
+            category = "indian_diet"
+        ),
+        
+        // ADDITIONAL WEIGHT LOSS TIPS
+        NutritionTip(
+            id = "weightloss_3",
+            title = "Portion Control Tricks",
+            description = "Use smaller plates. Fill half plate with sabzi/salad. Quarter with dal/protein. Quarter with rice/roti. Eat slowly, chew well (20-30 times).",
+            category = "weight_loss"
+        ),
+        NutritionTip(
+            id = "weightloss_4",
+            title = "Avoid Liquid Calories",
+            description = "Skip sugary drinks, packaged juices, soda. These add calories without filling you up. Stick to water, chaas, lemon water, green tea.",
+            category = "weight_loss"
+        ),
+        
+        // ADDITIONAL MUSCLE GAIN TIPS
+        NutritionTip(
+            id = "musclegain_3",
+            title = "Pre-Bed Protein",
+            description = "Eat slow-digesting protein before bed. Paneer (100g) or curd (1 bowl) or casein shake. Feeds muscles overnight during recovery. Good for muscle gain.",
+            category = "muscle_gain"
+        ),
+        
+        // ADDITIONAL SUPPLEMENT TIPS
+        NutritionTip(
+            id = "supplement_3",
+            title = "Multivitamin - Do You Need?",
+            description = "If balanced diet, may not need. Vegetarians: consider B12 supplement. Get blood test first. Don't rely on supplements, focus on real food first.",
+            category = "supplements"
+        ),
+        
+        // ADDITIONAL GENERAL TIPS
+        NutritionTip(
+            id = "general_3",
+            title = "Sleep and Nutrition",
+            description = "Poor sleep = increased hunger + cravings. Aim 7-8 hours sleep. Good sleep improves recovery, muscle growth, fat loss. Sleep is foundation of fitness.",
+            category = "general"
+        ),
+        NutritionTip(
+            id = "general_4",
+            title = "Track Your Food",
+            description = "Track meals for 1 week to know your actual intake. Eye-opening! Use apps or notes. Adjust based on goals. Aware eating = smarter choices.",
+            category = "general"
         )
     )
     
