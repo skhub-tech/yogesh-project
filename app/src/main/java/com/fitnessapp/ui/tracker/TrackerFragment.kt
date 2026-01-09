@@ -56,7 +56,6 @@ class TrackerFragment : Fragment(R.layout.fragment_tracker) {
         }
 
         viewModel.logs.observe(viewLifecycleOwner) { logs ->
-            // Update chart
             val entries = logs.mapIndexed { index, log ->
                 Entry(index.toFloat(), log.weight.toFloat())
             }
@@ -156,3 +155,4 @@ class TrackerFragment : Fragment(R.layout.fragment_tracker) {
         chart.axisRight.isEnabled = false
     }
 }
+

@@ -5,16 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fitnessapp.model.ExerciseSetLog
+import com.fitnessapp.model.PersonalRecord
 import com.fitnessapp.repository.TrackerRepository
 import com.fitnessapp.repository.UserRepository
 import kotlinx.coroutines.launch
-
-data class PersonalRecord(
-    val exerciseName: String,
-    val bestWeight: Double,
-    val bestReps: Int,
-    val estimated1RM: Double
-)
 
 class PersonalRecordsViewModel : ViewModel() {
     private val trackerRepository = TrackerRepository()
@@ -41,13 +35,17 @@ class PersonalRecordsViewModel : ViewModel() {
     }
 
     private fun calculatePRs(logs: List<ExerciseSetLog>): List<PersonalRecord> {
+        val uid = userRepository.getCurrentUserUid() ?: ""
         return logs.groupBy { it.exerciseName }.map { (name, exerciseLogs) ->
             val bestLog = exerciseLogs.maxByOrNull { calculate1RM(it.weight, it.reps) }!!
+            val oneRM = calculate1RM(bestLog.weight, bestLog.reps)
             PersonalRecord(
                 exerciseName = name,
                 bestWeight = bestLog.weight,
                 bestReps = bestLog.reps,
-                estimated1RM = calculate1RM(bestLog.weight, bestLog.reps)
+                estimated1RM = oneRM,
+                achievedDate = bestLog.timestamp,
+                userId = uid
             )
         }
     }

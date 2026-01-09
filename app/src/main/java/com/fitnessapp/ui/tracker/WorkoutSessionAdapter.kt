@@ -3,18 +3,22 @@ package com.fitnessapp.ui.tracker
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.fitnessapp.R
 import com.fitnessapp.model.WorkoutSession
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class WorkoutSessionAdapter(private var sessions: List<WorkoutSession>) :
     RecyclerView.Adapter<WorkoutSessionAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvDate: TextView = view.findViewById(R.id.tvSessionDate)
-        val layoutExercises: LinearLayout = view.findViewById(R.id.layoutExercises)
+        val tvExerciseName: TextView = view.findViewById(R.id.tvExerciseName)
+        val tvSetDetails: TextView = view.findViewById(R.id.tvSetDetails)
+        val tvTimestamp: TextView = view.findViewById(R.id.tvTimestamp)
+        val tvVolume: TextView = view.findViewById(R.id.tvVolume)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,28 +29,27 @@ class WorkoutSessionAdapter(private var sessions: List<WorkoutSession>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val session = sessions[position]
-        holder.tvDate.text = session.date
-        holder.layoutExercises.removeAllViews()
-
-        val inflater = LayoutInflater.from(holder.itemView.context)
-
-        session.exercises.forEach { exercise ->
-            val exerciseView = inflater.inflate(R.layout.item_session_exercise, holder.layoutExercises, false)
-            exerciseView.findViewById<TextView>(R.id.tvExerciseName).text = exercise.exerciseName
-            exerciseView.findViewById<TextView>(R.id.tvSetCount).text = "${exercise.sets.size} sets"
-
-            val layoutSets = exerciseView.findViewById<LinearLayout>(R.id.layoutSets)
-            exercise.sets.forEach { set ->
-                val setView = inflater.inflate(R.layout.item_set_log, layoutSets, false)
-                setView.findViewById<TextView>(R.id.tvWeight).text = "${set.weight} kg"
-                setView.findViewById<TextView>(R.id.tvReps).text = "${set.reps} reps"
-                if (set.isPr) {
-                    setView.findViewById<View>(R.id.ivPr).visibility = View.VISIBLE
-                }
-                layoutSets.addView(setView)
-            }
-            holder.layoutExercises.addView(exerciseView)
+        
+        // Display workout session name or first exercise
+        val exerciseName = if (session.exercises.isNotEmpty()) {
+            session.exercises.first().exerciseName
+        } else {
+            "Workout Session"
         }
+        holder.tvExerciseName.text = exerciseName
+        
+        // Display total exercises and sets
+        val totalSets = session.exercises.sumOf { it.sets.size }
+        holder.tvSetDetails.text = "${session.exercises.size} exercises • $totalSets sets"
+        
+        // Display formatted date
+        holder.tvTimestamp.text = formatDate(session.date)
+        
+        // Calculate and display total volume
+        val totalVolume = session.exercises.sumOf { exercise ->
+            exercise.sets.sumOf { it.weight * it.reps }
+        }
+        holder.tvVolume.text = totalVolume.toInt().toString()
     }
 
     override fun getItemCount() = sessions.size
@@ -54,5 +57,14 @@ class WorkoutSessionAdapter(private var sessions: List<WorkoutSession>) :
     fun updateList(newList: List<WorkoutSession>) {
         sessions = newList
         notifyDataSetChanged()
+    }
+    
+    private fun formatDate(dateString: String): String {
+        return try {
+            // Assuming date is stored as timestamp or formatted string
+            dateString
+        } catch (e: Exception) {
+            "Recent"
+        }
     }
 }

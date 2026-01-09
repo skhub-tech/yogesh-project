@@ -52,4 +52,9 @@
     <color name="primaryColor">@color/gradient_purple_start</color>
     <color name="secondaryColor">@color/gradient_orange_start</color>
     <color name="card_bg">@color/background_card</color>
+    
+    <!-- Theme colors for Material Design -->
+    <color name="colorPrimary">#667eea</color>
+    <color name="colorPrimaryDark">#764ba2</color>
+    <color name="colorAccent">#4facfe</color>
 </resources>

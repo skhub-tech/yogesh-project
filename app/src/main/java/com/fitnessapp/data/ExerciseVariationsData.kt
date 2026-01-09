@@ -79,7 +79,7 @@ object ExerciseVariationsData {
             ),
             targetMuscles = "Triceps, Inner Chest",
             equipment = "None",
-            animationGif = com.fitnessapp.R.drawable.diamond_pushup_anim
+            stepImages = listOf(com.fitnessapp.R.drawable.diamond_pushup_anim)
         ),
         ExerciseVariation(
             id = "pushup_decline",
@@ -153,7 +153,8 @@ object ExerciseVariationsData {
                 "Alternate sides each rep"
             ),
             targetMuscles = "Chest, Triceps (unilateral)",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.archer_pushup_steps)
         ),
         ExerciseVariation(
             id = "pushup_onearm",
@@ -167,7 +168,8 @@ object ExerciseVariationsData {
                 "Push back up using chest and arm"
             ),
             targetMuscles = "Chest, Triceps, Core",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.onearm_pushup_steps)
         )
     )
     
@@ -219,7 +221,8 @@ object ExerciseVariationsData {
                 "Keep shoulders back"
             ),
             targetMuscles = "Lower Chest, Triceps",
-            equipment = "Barbell, Decline Bench"
+            equipment = "Barbell, Decline Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.decline_bench_steps)
         ),
         ExerciseVariation(
             id = "bench_closegrip",
@@ -233,7 +236,8 @@ object ExerciseVariationsData {
                 "Press focusing on triceps"
             ),
             targetMuscles = "Triceps, Inner Chest",
-            equipment = "Barbell, Bench"
+            equipment = "Barbell, Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.closegrip_bench_steps)
         ),
         ExerciseVariation(
             id = "bench_dumbbell",
@@ -247,7 +251,8 @@ object ExerciseVariationsData {
                 "Keep core tight"
             ),
             targetMuscles = "Chest, Stabilizers",
-            equipment = "Dumbbells, Bench"
+            equipment = "Dumbbells, Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.dumbbell_bench_steps)
         ),
         ExerciseVariation(
             id = "bench_widegrip",
@@ -261,7 +266,8 @@ object ExerciseVariationsData {
                 "Control the weight"
             ),
             targetMuscles = "Outer Chest, Shoulders",
-            equipment = "Barbell, Bench"
+            equipment = "Barbell, Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.widegrip_bench_steps)
         )
     )
     
@@ -278,7 +284,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Upper Chest, Shoulders",
-            equipment = "Dumbbells, Incline Bench"
+            equipment = "Dumbbells, Incline Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.incline_db_press_steps)
         ),
         ExerciseVariation(
             id = "db_fly",
@@ -292,7 +299,8 @@ object ExerciseVariationsData {
                 "Bring dumbbells back together"
             ),
             targetMuscles = "Chest (isolation)",
-            equipment = "Dumbbells, Bench"
+            equipment = "Dumbbells, Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.dumbbell_fly_steps)
         ),
         ExerciseVariation(
             id = "db_squeeze",
@@ -306,7 +314,8 @@ object ExerciseVariationsData {
                 "Press back up"
             ),
             targetMuscles = "Inner Chest",
-            equipment = "Dumbbells, Bench"
+            equipment = "Dumbbells, Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.dumbbell_squeeze_steps)
         )
     )
     
@@ -323,7 +332,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Lats, Biceps, Back",
-            equipment = "Pull-up bar"
+            equipment = "Pull-up bar",
+            stepImages = listOf(com.fitnessapp.R.drawable.standard_pullup_steps)
         ),
         ExerciseVariation(
             id = "pullup_wide",
@@ -337,7 +347,8 @@ object ExerciseVariationsData {
                 "Full range of motion"
             ),
             targetMuscles = "Lats (width), Upper Back",
-            equipment = "Pull-up bar"
+            equipment = "Pull-up bar",
+            stepImages = listOf(com.fitnessapp.R.drawable.wide_pullup_steps)
         ),
         ExerciseVariation(
             id = "pullup_close",
@@ -351,7 +362,8 @@ object ExerciseVariationsData {
                 "Control descent"
             ),
             targetMuscles = "Lower Lats, Biceps",
-            equipment = "Pull-up bar"
+            equipment = "Pull-up bar",
+            stepImages = listOf(com.fitnessapp.R.drawable.close_pullup_steps)
         ),
         ExerciseVariation(
             id = "chinup",
@@ -365,7 +377,8 @@ object ExerciseVariationsData {
                 "Lower slowly"
             ),
             targetMuscles = "Biceps, Lats",
-            equipment = "Pull-up bar"
+            equipment = "Pull-up bar",
+            stepImages = listOf(com.fitnessapp.R.drawable.chinup_steps)
         ),
         ExerciseVariation(
             id = "pullup_neutral",
@@ -379,7 +392,8 @@ object ExerciseVariationsData {
                 "Full range of motion"
             ),
             targetMuscles = "Lats, Biceps, Forearms",
-            equipment = "Neutral grip bar attachment"
+            equipment = "Neutral grip bar attachment",
+            stepImages = listOf(com.fitnessapp.R.drawable.neutral_pullup_steps)
         )
     )
     
@@ -396,7 +410,8 @@ object ExerciseVariationsData {
                 "Squeeze back at top"
             ),
             targetMuscles = "Lats, Mid-back, Biceps",
-            equipment = "Dumbbell, Bench"
+            equipment = "Dumbbell, Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.dumbbell_row_steps)
         ),
         ExerciseVariation(
             id = "row_bent",
@@ -410,7 +425,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Lats, Traps, Rhomboids",
-            equipment = "Barbell"
+            equipment = "Barbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.bent_row_steps)
         ),
         ExerciseVariation(
             id = "row_tbar",
@@ -424,7 +440,8 @@ object ExerciseVariationsData {
                 "Control the movement"
             ),
             targetMuscles = "Mid-back, Lats",
-            equipment = "T-bar machine"
+            equipment = "T-bar machine",
+            stepImages = listOf(com.fitnessapp.R.drawable.tbar_row_steps)
         )
     )
     
@@ -441,7 +458,8 @@ object ExerciseVariationsData {
                 "Stand back up"
             ),
             targetMuscles = "Quads, Glutes, Hamstrings",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.bodyweight_squat_steps)
         ),
         ExerciseVariation(
             id = "squat_goblet",
@@ -455,7 +473,8 @@ object ExerciseVariationsData {
                 "Drive through heels"
             ),
             targetMuscles = "Quads, Glutes, Core",
-            equipment = "Dumbbell"
+            equipment = "Dumbbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.goblet_squat_steps)
         ),
         ExerciseVariation(
             id = "squat_front",
@@ -469,7 +488,8 @@ object ExerciseVariationsData {
                 "Drive up through heels"
             ),
             targetMuscles = "Quads, Core",
-            equipment = "Barbell, Rack"
+            equipment = "Barbell, Rack",
+            stepImages = listOf(com.fitnessapp.R.drawable.front_squat_steps)
         ),
         ExerciseVariation(
             id = "squat_back",
@@ -483,7 +503,8 @@ object ExerciseVariationsData {
                 "Keep core braced"
             ),
             targetMuscles = "Quads, Glutes, Hamstrings, Core",
-            equipment = "Barbell, Rack"
+            equipment = "Barbell, Rack",
+            stepImages = listOf(com.fitnessapp.R.drawable.back_squat_steps)
         ),
         ExerciseVariation(
             id = "squat_bulgarian",
@@ -497,7 +518,8 @@ object ExerciseVariationsData {
                 "Drive through front heel"
             ),
             targetMuscles = "Quads, Glutes (unilateral)",
-            equipment = "Bench, optional dumbbells"
+            equipment = "Bench, optional dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.bulgarian_split_squat_steps)
         ),
         ExerciseVariation(
             id = "squat_sumo",
@@ -511,7 +533,8 @@ object ExerciseVariationsData {
                 "Squeeze glutes at top"
             ),
             targetMuscles = "Inner Thighs, Glutes, Quads",
-            equipment = "None or dumbbell"
+            equipment = "None or dumbbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.sumo_squat_steps)
         )
     )
     
@@ -528,7 +551,8 @@ object ExerciseVariationsData {
                 "Drive through heels, extend hips"
             ),
             targetMuscles = "Hamstrings, Glutes, Back, Core",
-            equipment = "Barbell"
+            equipment = "Barbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.conventional_deadlift_steps)
         ),
         ExerciseVariation(
             id = "deadlift_sumo",
@@ -542,7 +566,8 @@ object ExerciseVariationsData {
                 "Drive knees out, extend hips"
             ),
             targetMuscles = "Glutes, Inner Thighs, Back",
-            equipment = "Barbell"
+            equipment = "Barbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.sumo_deadlift_steps)
         ),
         ExerciseVariation(
             id = "deadlift_romanian",
@@ -556,7 +581,8 @@ object ExerciseVariationsData {
                 "Feel hamstring stretch, return"
             ),
             targetMuscles = "Hamstrings, Glutes, Lower Back",
-            equipment = "Barbell"
+            equipment = "Barbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.romanian_deadlift_steps)
         ),
         ExerciseVariation(
             id = "deadlift_singleleg",
@@ -570,7 +596,8 @@ object ExerciseVariationsData {
                 "Return to standing"
             ),
             targetMuscles = "Hamstrings, Glutes, Balance",
-            equipment = "Dumbbell or kettlebell"
+            equipment = "Dumbbell or kettlebell",
+            stepImages = listOf(com.fitnessapp.R.drawable.singleleg_deadlift_steps)
         ),
         ExerciseVariation(
             id = "deadlift_trap",
@@ -584,7 +611,8 @@ object ExerciseVariationsData {
                 "Drive up through heels"
             ),
             targetMuscles = "Quads, Glutes, Traps",
-            equipment = "Trap bar"
+            equipment = "Trap bar",
+            stepImages = listOf(com.fitnessapp.R.drawable.trapbar_deadlift_steps)
         )
     )
     
@@ -603,7 +631,8 @@ object ExerciseVariationsData {
                 "Push back to starting position"
             ),
             targetMuscles = "Quads, Glutes, Hamstrings",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.forward_lunge_steps)
         ),
         ExerciseVariation(
             id = "lunge_reverse",
@@ -617,7 +646,8 @@ object ExerciseVariationsData {
                 "Return to starting position"
             ),
             targetMuscles = "Glutes, Quads, Hamstrings",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.reverse_lunge_steps)
         ),
         ExerciseVariation(
             id = "lunge_walking",
@@ -631,7 +661,8 @@ object ExerciseVariationsData {
                 "Maintain upright torso"
             ),
             targetMuscles = "Quads, Glutes, Balance",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.walking_lunge_steps)
         ),
         ExerciseVariation(
             id = "lunge_lateral",
@@ -645,7 +676,8 @@ object ExerciseVariationsData {
                 "Push back to center"
             ),
             targetMuscles = "Inner Thighs, Glutes, Quads",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.lateral_lunge_steps)
         )
     )
     
@@ -662,7 +694,8 @@ object ExerciseVariationsData {
                 "Press back to start without locking knees"
             ),
             targetMuscles = "Quads, Glutes, Hamstrings",
-            equipment = "Leg press machine"
+            equipment = "Leg press machine",
+            stepImages = listOf(com.fitnessapp.R.drawable.legpress_standard_steps)
         ),
         ExerciseVariation(
             id = "legpress_wide",
@@ -676,7 +709,8 @@ object ExerciseVariationsData {
                 "Press through heels"
             ),
             targetMuscles = "Quads, Inner Thighs, Glutes",
-            equipment = "Leg press machine"
+            equipment = "Leg press machine",
+            stepImages = listOf(com.fitnessapp.R.drawable.legpress_wide_steps)
         ),
         ExerciseVariation(
             id = "legpress_high",
@@ -690,7 +724,8 @@ object ExerciseVariationsData {
                 "Feel glutes and hamstrings engage"
             ),
             targetMuscles = "Glutes, Hamstrings",
-            equipment = "Leg press machine"
+            equipment = "Leg press machine",
+            stepImages = listOf(com.fitnessapp.R.drawable.legpress_high_steps)
         )
     )
     
@@ -707,7 +742,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Shoulders, Triceps, Core",
-            equipment = "Barbell"
+            equipment = "Barbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.barbell_ohp_steps)
         ),
         ExerciseVariation(
             id = "ohp_dumbbell",
@@ -721,7 +757,8 @@ object ExerciseVariationsData {
                 "Lower to shoulders"
             ),
             targetMuscles = "Shoulders, Triceps",
-            equipment = "Dumbbells"
+            equipment = "Dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.dumbbell_shoulder_press_steps)
         ),
         ExerciseVariation(
             id = "ohp_arnold",
@@ -735,7 +772,8 @@ object ExerciseVariationsData {
                 "Reverse motion on way down"
             ),
             targetMuscles = "All three deltoid heads",
-            equipment = "Dumbbells"
+            equipment = "Dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.arnold_press_steps)
         )
     )
     
@@ -752,7 +790,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Side Deltoids",
-            equipment = "Dumbbells"
+            equipment = "Dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.lateral_raise_standing_steps)
         ),
         ExerciseVariation(
             id = "lateral_cable",
@@ -766,7 +805,8 @@ object ExerciseVariationsData {
                 "Control the descent"
             ),
             targetMuscles = "Side Deltoids",
-            equipment = "Cable machine"
+            equipment = "Cable machine",
+            stepImages = listOf(com.fitnessapp.R.drawable.cable_lateral_raise_steps)
         ),
         ExerciseVariation(
             id = "lateral_bent",
@@ -780,7 +820,8 @@ object ExerciseVariationsData {
                 "Focus on rear delts"
             ),
             targetMuscles = "Rear Deltoids",
-            equipment = "Dumbbells"
+            equipment = "Dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.bent_lateral_raise_steps)
         )
     )
     
@@ -797,7 +838,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Biceps",
-            equipment = "Barbell"
+            equipment = "Barbell",
+            stepImages = listOf(com.fitnessapp.R.drawable.barbell_curl_steps)
         ),
         ExerciseVariation(
             id = "curl_dumbbell",
@@ -811,7 +853,8 @@ object ExerciseVariationsData {
                 "Alternate arms"
             ),
             targetMuscles = "Biceps",
-            equipment = "Dumbbells"
+            equipment = "Dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.dumbbell_curl_steps)
         ),
         ExerciseVariation(
             id = "curl_hammer",
@@ -825,7 +868,8 @@ object ExerciseVariationsData {
                 "Keep elbows tight to body"
             ),
             targetMuscles = "Biceps, Brachialis, Forearms",
-            equipment = "Dumbbells"
+            equipment = "Dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.hammer_curl_steps)
         ),
         ExerciseVariation(
             id = "curl_preacher",
@@ -839,7 +883,8 @@ object ExerciseVariationsData {
                 "Full range of motion"
             ),
             targetMuscles = "Biceps (peak)",
-            equipment = "Preacher bench, barbell or dumbbells"
+            equipment = "Preacher bench, barbell or dumbbells",
+            stepImages = listOf(com.fitnessapp.R.drawable.preacher_curl_steps)
         )
     )
     
@@ -856,7 +901,8 @@ object ExerciseVariationsData {
                 "Press back up to start"
             ),
             targetMuscles = "Triceps, Chest, Shoulders",
-            equipment = "Parallel bars"
+            equipment = "Parallel bars",
+            stepImages = listOf(com.fitnessapp.R.drawable.parallel_dips_steps)
         ),
         ExerciseVariation(
             id = "dip_bench",
@@ -870,7 +916,8 @@ object ExerciseVariationsData {
                 "Push back up"
             ),
             targetMuscles = "Triceps",
-            equipment = "Bench"
+            equipment = "Bench",
+            stepImages = listOf(com.fitnessapp.R.drawable.bench_dips_steps)
         ),
         ExerciseVariation(
             id = "dip_weighted",
@@ -884,7 +931,8 @@ object ExerciseVariationsData {
                 "Progressive overload"
             ),
             targetMuscles = "Triceps, Chest",
-            equipment = "Parallel bars, weight belt"
+            equipment = "Parallel bars, weight belt",
+            stepImages = listOf(com.fitnessapp.R.drawable.weighted_dips_steps)
         )
     )
     
@@ -901,7 +949,8 @@ object ExerciseVariationsData {
                 "Hold position"
             ),
             targetMuscles = "Core, Abs, Lower Back",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.standard_plank_steps)
         ),
         ExerciseVariation(
             id = "plank_side",
@@ -915,7 +964,8 @@ object ExerciseVariationsData {
                 "Hold straight line from head to feet"
             ),
             targetMuscles = "Obliques, Core",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.side_plank_steps)
         ),
         ExerciseVariation(
             id = "plank_renegade",
@@ -929,7 +979,8 @@ object ExerciseVariationsData {
                 "Alternate sides, minimize rotation"
             ),
             targetMuscles = "Core, Shoulders, Stability",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.shoulder_tap_plank_steps)
         ),
         ExerciseVariation(
             id = "plank_up_down",
@@ -943,7 +994,8 @@ object ExerciseVariationsData {
                 "Alternate leading arm"
             ),
             targetMuscles = "Core, Triceps, Shoulders",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.updown_plank_steps)
         )
     )
     
@@ -960,7 +1012,8 @@ object ExerciseVariationsData {
                 "Focus on contracting abs"
             ),
             targetMuscles = "Upper Abs",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.basic_crunch_steps)
         ),
         ExerciseVariation(
             id = "crunch_bicycle",
@@ -974,7 +1027,8 @@ object ExerciseVariationsData {
                 "Alternate sides in pedaling motion"
             ),
             targetMuscles = "Abs, Obliques",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.bicycle_crunch_steps)
         ),
         ExerciseVariation(
             id = "crunch_reverse",
@@ -988,7 +1042,8 @@ object ExerciseVariationsData {
                 "Lower with control"
             ),
             targetMuscles = "Lower Abs",
-            equipment = "None"
+            equipment = "None",
+            stepImages = listOf(com.fitnessapp.R.drawable.reverse_crunch_steps)
         ),
         ExerciseVariation(
             id = "crunch_cable",
@@ -1002,7 +1057,8 @@ object ExerciseVariationsData {
                 "Focus on abs, not pulling with arms"
             ),
             targetMuscles = "Abs",
-            equipment = "Cable machine"
+            equipment = "Cable machine",
+            stepImages = listOf(com.fitnessapp.R.drawable.cable_crunch_steps)
         )
     )
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fitnessapp.R
+import com.fitnessapp.model.PersonalRecord
 
 class PersonalRecordsFragment : Fragment(R.layout.fragment_personal_records) {
 

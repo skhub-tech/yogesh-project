@@ -18,30 +18,35 @@ class CalculatorTabFragment : Fragment(R.layout.tab_calculator) {
         val etWeight = view.findViewById<EditText>(R.id.etWeight)
         val etHeight = view.findViewById<EditText>(R.id.etHeight)
         val rgGender = view.findViewById<RadioGroup>(R.id.rgGender)
-        val spinnerActivity = view.findViewById<Spinner>(R.id.spinnerActivity)
-        val spinnerGoal = view.findViewById<Spinner>(R.id.spinnerGoal)
+        val activityDropdown = view.findViewById<AutoCompleteTextView>(R.id.activityDropdown)
+        val goalDropdown = view.findViewById<AutoCompleteTextView>(R.id.goalDropdown)
         val btnCalculate = view.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnCalculate)
         val cardResults = view.findViewById<MaterialCardView>(R.id.cardResults)
 
-        // Setup spinners
+        // Setup Activity Level Dropdown
         val activityLevels = arrayOf(
-            "Sedentary (Little or no exercise)",
-            "Lightly Active (1-3 days/week)",
-            "Moderately Active (3-5 days/week)",
-            "Very Active (6-7 days/week)",
-            "Extremely Active (Daily hard exercise)"
+            "🪑 Sedentary (Little or no exercise)",
+            "🚶 Light (Exercise 1-3 times/week)",
+            "🏃 Moderate (Exercise 4-5 times/week)",
+            "💪 Active (Daily exercise or intense 3-4 times/week)",
+            "🔥 Very Active (Intense exercise 6-7 times/week)"
         )
-        spinnerActivity.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, activityLevels).apply {
-            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        }
+        val activityAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, activityLevels)
+        activityDropdown.setAdapter(activityAdapter)
+        activityDropdown.setText(activityLevels[0], false)
 
-        val goals = arrayOf("Weight Loss", "Muscle Gain", "Maintenance")
-        spinnerGoal.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, goals).apply {
-            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        }
+        // Setup Goal Dropdown
+        val goals = arrayOf(
+            "📉 Weight Loss",
+            "⚖️ Maintain Weight",
+            "💪 Muscle Gain"
+        )
+        val goalAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, goals)
+        goalDropdown.setAdapter(goalAdapter)
+        goalDropdown.setText(goals[0], false)
 
         btnCalculate.setOnClickListener {
-            calculateNutrition(view, etAge, etWeight, etHeight, rgGender, spinnerActivity, spinnerGoal, cardResults)
+            calculateNutrition(view, etAge, etWeight, etHeight, rgGender, activityDropdown, goalDropdown, cardResults)
         }
     }
 
@@ -51,8 +56,8 @@ class CalculatorTabFragment : Fragment(R.layout.tab_calculator) {
         etWeight: EditText,
         etHeight: EditText,
         rgGender: RadioGroup,
-        spinnerActivity: Spinner,
-        spinnerGoal: Spinner,
+        activityDropdown: AutoCompleteTextView,
+        goalDropdown: AutoCompleteTextView,
         cardResults: MaterialCardView
     ) {
         val ageStr = etAge.text.toString()
@@ -69,18 +74,22 @@ class CalculatorTabFragment : Fragment(R.layout.tab_calculator) {
         val height = heightStr.toDouble()
         val isMale = rgGender.checkedRadioButtonId == R.id.rbMale
 
-        val activityLevel = when (spinnerActivity.selectedItemPosition) {
-            0 -> NutritionCalculator.ActivityLevel.SEDENTARY
-            1 -> NutritionCalculator.ActivityLevel.LIGHTLY_ACTIVE
-            2 -> NutritionCalculator.ActivityLevel.MODERATELY_ACTIVE
-            3 -> NutritionCalculator.ActivityLevel.VERY_ACTIVE
-            else -> NutritionCalculator.ActivityLevel.EXTREMELY_ACTIVE
+        // Get activity level from dropdown selection
+        val activityLevel = when {
+            activityDropdown.text.toString().startsWith("🪑") -> NutritionCalculator.ActivityLevel.SEDENTARY
+            activityDropdown.text.toString().startsWith("🚶") -> NutritionCalculator.ActivityLevel.LIGHTLY_ACTIVE
+            activityDropdown.text.toString().startsWith("🏃") -> NutritionCalculator.ActivityLevel.MODERATELY_ACTIVE
+            activityDropdown.text.toString().startsWith("💪") -> NutritionCalculator.ActivityLevel.VERY_ACTIVE
+            activityDropdown.text.toString().startsWith("🔥") -> NutritionCalculator.ActivityLevel.EXTREMELY_ACTIVE
+            else -> NutritionCalculator.ActivityLevel.SEDENTARY
         }
 
-        val goal = when (spinnerGoal.selectedItemPosition) {
-            0 -> NutritionCalculator.FitnessGoal.WEIGHT_LOSS
-            1 -> NutritionCalculator.FitnessGoal.MUSCLE_GAIN
-            else -> NutritionCalculator.FitnessGoal.MAINTENANCE
+        // Get goal from dropdown selection
+        val goal = when {
+            goalDropdown.text.toString().startsWith("📉") -> NutritionCalculator.FitnessGoal.WEIGHT_LOSS
+            goalDropdown.text.toString().startsWith("⚖️") -> NutritionCalculator.FitnessGoal.MAINTENANCE
+            goalDropdown.text.toString().startsWith("💪") -> NutritionCalculator.FitnessGoal.MUSCLE_GAIN
+            else -> NutritionCalculator.FitnessGoal.WEIGHT_LOSS
         }
 
         // Calculate
@@ -90,14 +99,14 @@ class CalculatorTabFragment : Fragment(R.layout.tab_calculator) {
         val macros = NutritionCalculator.calculateMacros(calorieTarget, goal)
         val waterIntake = NutritionCalculator.calculateWaterIntake(weight)
 
-        // Display results
-        view.findViewById<TextView>(R.id.tvBMR).text = "BMR: $bmr kcal"
-        view.findViewById<TextView>(R.id.tvTDEE).text = "TDEE: $tdee kcal"
-        view.findViewById<TextView>(R.id.tvCalorieTarget).text = "Daily Calorie Target: $calorieTarget kcal"
+        // Display results with simple formatting
+        view.findViewById<TextView>(R.id.tvBMR).text = "${bmr.toInt()} kcal"
+        view.findViewById<TextView>(R.id.tvTDEE).text = "${tdee.toInt()} kcal"
+        view.findViewById<TextView>(R.id.tvCalorieTarget).text = "${calorieTarget.toInt()} kcal"
         view.findViewById<TextView>(R.id.tvMacros).text = 
             "Protein: ${macros.first}g | Carbs: ${macros.second}g | Fats: ${macros.third}g"
         view.findViewById<TextView>(R.id.tvWater).text = 
-            "Water Intake: ${(waterIntake * 10).roundToInt() / 10.0}L/day"
+            "${(waterIntake * 10).roundToInt() / 10.0}L/day"
 
         cardResults.visibility = View.VISIBLE
     }

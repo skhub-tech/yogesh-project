@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/background_light">
 
     <!-- Category Chips -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:layout_marginBottom="16dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:singleSelection="true"
@@ -26,58 +28,56 @@
                 android:layout_height="wrap_content"
                 android:text="All"
                 android:checked="true"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                app:chipBackgroundColor="@color/gradient_purple_start" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipProtein"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Protein"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                android:text="Protein" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipHydration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hydration"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                android:text="Hydration" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipTiming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Timing"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                android:text="Timing" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipIndian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Indian Diet"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                android:text="Indian Diet" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipWeightLoss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weight Loss"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                android:text="Weight Loss" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipMuscle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Muscle Gain"
-                style="@style/Widget.MaterialComponents.Chip.Choice" />
+                android:text="Muscle Gain" />
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
-    <!-- Tips List -->
+    <!-- Nutrition Tips RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTips"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
 
 </LinearLayout>

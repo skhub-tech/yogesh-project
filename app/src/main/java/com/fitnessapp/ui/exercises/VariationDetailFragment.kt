@@ -13,8 +13,6 @@ import com.fitnessapp.R
 import com.fitnessapp.model.ExerciseVariation
 import com.fitnessapp.data.ExerciseVariationsData
 import com.google.android.material.chip.Chip
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.button.MaterialButton
 
 class VariationDetailFragment : Fragment(R.layout.fragment_variation_detail) {
@@ -70,16 +68,67 @@ class VariationDetailFragment : Fragment(R.layout.fragment_variation_detail) {
 
         // Display step images if available
         val vpStepImages = view.findViewById<ViewPager2>(R.id.vpStepImages)
-        val tabDots = view.findViewById<TabLayout>(R.id.tabDots)
+        val navigationLayout = view.findViewById<View>(R.id.layoutNavigationButtons)
+        val btnPrevStep = view.findViewById<MaterialButton>(R.id.btnPrevStep)
+        val btnNextStep = view.findViewById<MaterialButton>(R.id.btnNextStep)
+        val tvStepCounter = view.findViewById<TextView>(R.id.tvStepCounter)
+        
+        android.util.Log.d("VariationDetail", "Step images count: ${variation.stepImages.size}")
+        variation.stepImages.forEachIndexed { index, resId ->
+            android.util.Log.d("VariationDetail", "Image $index: Resource ID = $resId")
+        }
         
         if (variation.stepImages.isNotEmpty()) {
+            android.util.Log.d("VariationDetail", "Showing step images ViewPager")
             vpStepImages.visibility = View.VISIBLE
-            tabDots.visibility = View.VISIBLE
             
             val imagesAdapter = StepImagesAdapter(variation.stepImages)
             vpStepImages.adapter = imagesAdapter
             
-            TabLayoutMediator(tabDots, vpStepImages) { _, _ -> }.attach()
+            // Only show navigation buttons if there are multiple images
+            if (variation.stepImages.size > 1) {
+                navigationLayout.visibility = View.VISIBLE
+                
+                // Update step counter
+                val updateStepCounter = {
+                    val currentPos = vpStepImages.currentItem + 1
+                    val totalSteps = variation.stepImages.size
+                    tvStepCounter.text = "$currentPos / $totalSteps"
+                    
+                    // Enable/disable buttons based on position
+                    btnPrevStep.isEnabled = vpStepImages.currentItem > 0
+                    btnNextStep.isEnabled = vpStepImages.currentItem < totalSteps - 1
+                }
+                
+                // Initial state
+                updateStepCounter()
+                
+                // Previous button
+                btnPrevStep.setOnClickListener {
+                    if (vpStepImages.currentItem > 0) {
+                        vpStepImages.currentItem = vpStepImages.currentItem - 1
+                    }
+                }
+                
+                // Next button
+                btnNextStep.setOnClickListener {
+                    if (vpStepImages.currentItem < variation.stepImages.size - 1) {
+                        vpStepImages.currentItem = vpStepImages.currentItem + 1
+                    }
+                }
+                
+                // Update counter when page changes
+                vpStepImages.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        updateStepCounter()
+                    }
+                })
+            } else {
+                // Single image - hide navigation
+                navigationLayout.visibility = View.GONE
+            }
+        } else {
+            android.util.Log.w("VariationDetail", "No step images available for ${variation.name}")
         }
 
         // Hide GIF (not using GIFs anymore)

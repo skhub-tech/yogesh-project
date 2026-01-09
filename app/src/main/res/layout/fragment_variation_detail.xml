@@ -202,18 +202,71 @@
                 android:id="@+id/vpStepImages"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="12dp"
                 android:visibility="gone" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabDots"
-                android:layout_width="wrap_content"
+            <!-- Navigation Buttons Below Image -->
+            <LinearLayout
+                android:id="@+id/layoutNavigationButtons"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp"
-                android:visibility="gone"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp" />
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="20dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <!-- Previous Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPrevStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="◀ Previous"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginEnd="12dp"
+                    app:cornerRadius="20dp"
+                    app:backgroundTint="@color/gradient_blue_start"
+                    style="@style/Widget.MaterialComponents.Button" />
+
+                <!-- Step Counter -->
+                <TextView
+                    android:id="@+id/tvStepCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 / 4"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gradient_purple_start"
+                    android:background="@drawable/card_modern_bg"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Next Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNextStep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next ▶"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginStart="12dp"
+                    app:cornerRadius="20dp"
+                    app:backgroundTint="@color/gradient_blue_start"
+                    style="@style/Widget.MaterialComponents.Button" />
+
+            </LinearLayout>
+
+
 
             <!-- GIF Animation -->
             <ImageView
