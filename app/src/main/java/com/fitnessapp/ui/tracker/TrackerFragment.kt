@@ -30,6 +30,9 @@ class TrackerFragment : Fragment(R.layout.fragment_tracker) {
         val etWeight = view.findViewById<TextInputEditText>(R.id.etWeight)
         val btnSaveLog = view.findViewById<Button>(R.id.btnSaveLog)
         val rvWorkoutHistory = view.findViewById<RecyclerView>(R.id.rvWorkoutHistory)
+        
+        val tvTotalWorkouts = view.findViewById<android.widget.TextView>(R.id.tvTotalWorkouts)
+        val tvMaxVolume = view.findViewById<android.widget.TextView>(R.id.tvMaxVolume)
 
         workoutAdapter = WorkoutSessionAdapter(emptyList())
         rvWorkoutHistory.adapter = workoutAdapter
@@ -40,29 +43,62 @@ class TrackerFragment : Fragment(R.layout.fragment_tracker) {
         viewModel.sessions.observe(viewLifecycleOwner) { sessions ->
             workoutAdapter.updateList(sessions)
         }
+        
+        viewModel.totalWorkouts.observe(viewLifecycleOwner) { count ->
+            tvTotalWorkouts.text = count.toString()
+        }
+        
+        viewModel.maxVolume.observe(viewLifecycleOwner) { volume ->
+            tvMaxVolume.text = "${volume.toInt()} kg"
+        }
 
         viewModel.volumeData.observe(viewLifecycleOwner) { data ->
+            // data is Pair(DateString, Volume)
             val entries = data.mapIndexed { index, pair ->
                 Entry(index.toFloat(), pair.second.toFloat())
             }
+            val dates = data.map { it.first } // Extract dates for X-Axis
+
             if (entries.isNotEmpty()) {
-                val dataSet = LineDataSet(entries, "Total Volume")
-                dataSet.color = Color.parseColor("#388E3C") // Green
+                val dataSet = LineDataSet(entries, "Volume")
+                dataSet.color = Color.parseColor("#00B0FF") // Blue
                 dataSet.setDrawFilled(true)
-                dataSet.fillColor = Color.parseColor("#C8E6C9")
+                dataSet.fillColor = Color.parseColor("#E1F5FE")
+                dataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
+                dataSet.setDrawValues(false)
+                dataSet.setDrawCircles(true)
+                dataSet.circleRadius = 4f
+                dataSet.setCircleColor(Color.parseColor("#00B0FF"))
+                
+                chartVolume.xAxis.valueFormatter = com.github.mikephil.charting.formatter.IndexAxisValueFormatter(dates)
+                chartVolume.xAxis.labelCount = dates.size.coerceAtMost(5)
+                
                 chartVolume.data = LineData(dataSet)
                 chartVolume.invalidate()
             }
         }
 
         viewModel.logs.observe(viewLifecycleOwner) { logs ->
+            // logs is List<DailyLog> sorted by date
             val entries = logs.mapIndexed { index, log ->
                 Entry(index.toFloat(), log.weight.toFloat())
             }
+            val dates = logs.map { it.date }
+
             if (entries.isNotEmpty()) {
-                val dataSet = LineDataSet(entries, "Weight History")
-                dataSet.color = Color.BLUE
-                dataSet.valueTextColor = Color.BLACK
+                val dataSet = LineDataSet(entries, "Weight")
+                dataSet.color = Color.parseColor("#FF9100") // Orange
+                dataSet.lineWidth = 2f
+                dataSet.setDrawCircles(true)
+                dataSet.setCircleColor(Color.parseColor("#FF9100"))
+                dataSet.circleRadius = 4f
+                dataSet.valueTextSize = 10f
+                dataSet.valueTextColor = Color.GRAY
+                dataSet.mode = LineDataSet.Mode.HORIZONTAL_BEZIER
+                
+                chartWeight.xAxis.valueFormatter = com.github.mikephil.charting.formatter.IndexAxisValueFormatter(dates)
+                chartWeight.xAxis.labelCount = dates.size.coerceAtMost(5)
+
                 chartWeight.data = LineData(dataSet)
                 chartWeight.invalidate()
             }
@@ -90,16 +126,6 @@ class TrackerFragment : Fragment(R.layout.fragment_tracker) {
 
         view.findViewById<Button>(R.id.btnViewPRs).setOnClickListener {
             findNavController().navigate(R.id.personalRecordsFragment)
-        }
-
-        view.findViewById<Button>(R.id.btnExportData).setOnClickListener {
-            val csv = viewModel.getCsvContent()
-            val intent = android.content.Intent(android.content.Intent.ACTION_SEND).apply {
-                type = "text/plain"
-                putExtra(android.content.Intent.EXTRA_SUBJECT, "My Workout Data")
-                putExtra(android.content.Intent.EXTRA_TEXT, csv)
-            }
-            startActivity(android.content.Intent.createChooser(intent, "Share CSV Data"))
         }
     }
     
@@ -147,12 +173,21 @@ class TrackerFragment : Fragment(R.layout.fragment_tracker) {
         chart.description.isEnabled = false
         chart.setTouchEnabled(true)
         chart.setPinchZoom(true)
+        chart.legend.isEnabled = false
         
         val xAxis = chart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawGridLines(false)
+        xAxis.textColor = Color.GRAY
+        xAxis.granularity = 1f
         
         chart.axisRight.isEnabled = false
+        chart.axisLeft.textColor = Color.GRAY
+        chart.axisLeft.setDrawGridLines(true)
+        chart.axisLeft.gridColor = Color.parseColor("#E0E0E0")
+        
+        // Add extra offset specifically for bottom to prevent label clipping
+        chart.extraBottomOffset = 10f
     }
 }
 

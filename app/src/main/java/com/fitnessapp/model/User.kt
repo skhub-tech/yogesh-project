@@ -1,5 +1,9 @@
 package com.fitnessapp.model
 
+import androidx.annotation.Keep
+import java.io.Serializable
+
+@Keep
 data class User(
     val uid: String = "",
     val name: String = "",
@@ -9,4 +13,4 @@ data class User(
     val heightCm: Double = 0.0,
     val weightKg: Double = 0.0,
     val fitnessGoal: String = "general_fitness" // fat_loss, muscle_gain, general_fitness
-)
+) : Serializable

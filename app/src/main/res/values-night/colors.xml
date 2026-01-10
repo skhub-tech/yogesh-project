@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    
+    <!-- Modern Neutrals (Dark Mode Overrides) -->
+    <color name="background_light">#121212</color> <!-- Dark background -->
+    <color name="background_card">#1E1E1E</color>  <!-- Dark card surface -->
+    <color name="text_primary">#E0E0E0</color>    <!-- Light text -->
+    <color name="text_secondary">#B0B0B0</color>  <!-- Muted text -->
+    <color name="text_tertiary">#6E6E6E</color>
+    
+    <!-- Adjust shadows for dark mode if needed, or keep transparent -->
+    <color name="shadow_light">#40000000</color>
+    
+    <!-- Glassmorphism - Darker overlay -->
+    <color name="glass_white">#1AFFFFFF</color>
+    <color name="glass_overlay">#80000000</color>
+    <color name="glass_border">#30FFFFFF</color>
+    
+    <!-- Legacy aliases -->
+    <color name="card_bg">@color/background_card</color>
+    
+    <!-- Calculator/Card Semantic Colors (Night) -->
+    <color name="background_surface_offset">#2D2D2D</color>
+    <color name="background_warning">#3E2723</color> <!-- Dark Brown/Orange -->
+    <color name="background_info">#0D47A1</color>    <!-- Dark Blue -->
+    
+    <color name="text_on_warning">#FFCCBC</color>    <!-- Light Orange/Peach -->
+    <color name="text_on_info">#BBDEFB</color>       <!-- Light Blue -->
+    
+</resources>

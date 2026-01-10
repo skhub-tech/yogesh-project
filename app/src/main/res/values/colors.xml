@@ -57,4 +57,12 @@
     <color name="colorPrimary">#667eea</color>
     <color name="colorPrimaryDark">#764ba2</color>
     <color name="colorAccent">#4facfe</color>
+    
+    <!-- Calculator/Card Semantic Colors (Day) -->
+    <color name="background_surface_offset">#F1F5F9</color>
+    <color name="background_warning">#FEF3C7</color>
+    <color name="background_info">#DBEAFE</color>
+    
+    <color name="text_on_warning">#92400E</color>
+    <color name="text_on_info">#1E40AF</color>
 </resources>

@@ -29,6 +29,12 @@ class TrackerViewModel : ViewModel() {
     private val _volumeData = MutableLiveData<List<Pair<String, Double>>>()
     val volumeData: LiveData<List<Pair<String, Double>>> get() = _volumeData
 
+    private val _totalWorkouts = MutableLiveData<Int>()
+    val totalWorkouts: LiveData<Int> get() = _totalWorkouts
+
+    private val _maxVolume = MutableLiveData<Double>()
+    val maxVolume: LiveData<Double> get() = _maxVolume
+
     init {
         loadLogs()
         loadWorkoutSessions()
@@ -43,19 +49,27 @@ class TrackerViewModel : ViewModel() {
                     val logs = result.getOrNull() ?: emptyList()
                     val groupedSessions = groupLogsIntoSessions(logs)
                     _sessions.value = groupedSessions
-                    _volumeData.value = calculateDailyVolume(groupedSessions)
+                    
+                    // Identify max volume
+                    val volumeList = calculateDailyVolume(groupedSessions)
+                    _volumeData.value = volumeList
+                    
+                    _totalWorkouts.value = groupedSessions.size
+                    _maxVolume.value = volumeList.maxOfOrNull { it.second } ?: 0.0
                 }
             }
         }
     }
 
     private fun calculateDailyVolume(sessions: List<com.fitnessapp.model.WorkoutSession>): List<Pair<String, Double>> {
+        // sessions are currently Descending by date (newest first)
+        // We want chart to be Oldest -> Newest (Ascending)
         return sessions.map { session ->
             val totalVolume = session.exercises.sumOf { ex ->
                 ex.sets.sumOf { set -> set.weight * set.reps }
             }
             Pair(session.date, totalVolume)
-        }.reversed() // Ascending order for chart
+        }.sortedBy { it.first } // Sort by date ascending
     }
 
     private fun groupLogsIntoSessions(logs: List<com.fitnessapp.model.ExerciseSetLog>): List<com.fitnessapp.model.WorkoutSession> {
@@ -74,7 +88,7 @@ class TrackerViewModel : ViewModel() {
                 date = date,
                 exercises = exercisesWithSets
             )
-        }.sortedByDescending { it.date }
+        }.sortedByDescending { it.date } // List view wants Newest first
     }
 
     fun loadLogs() {
@@ -83,7 +97,9 @@ class TrackerViewModel : ViewModel() {
             if (uid != null) {
                 val result = trackerRepository.getLast7DaysLogs(uid)
                 if (result.isSuccess) {
-                    _logs.value = result.getOrNull() ?: emptyList()
+                    // Repository returns Descending. We need Ascending for Chart.
+                    val rawList = result.getOrNull() ?: emptyList()
+                    _logs.value = rawList.sortedBy { it.date }
                 }
             }
         }
@@ -116,7 +132,8 @@ class TrackerViewModel : ViewModel() {
                     userId = uid,
                     exerciseName = exerciseName,
                     weight = weight,
-                    reps = reps
+                    reps = reps,
+                    timestamp = System.currentTimeMillis() // Ensure timestamp is set
                 )
                 trackerRepository.logExerciseSet(uid, log)
                 loadWorkoutSessions()

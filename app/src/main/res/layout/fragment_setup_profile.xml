@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@android:color/white">
+    android:background="@color/background_light">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,35 +13,68 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Header Section with Profile Image -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Complete Your Profile"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="8dp"/>
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tell us about yourself to get a personalized plan."
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginBottom="32dp"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivProfileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="16dp"
+                android:padding="2dp"
+                android:src="@drawable/ic_person"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                app:strokeColor="@color/primary_blue"
+                app:strokeWidth="2dp"
+                android:background="@color/background_card"
+                android:scaleType="centerCrop"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Complete Your Profile"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tell us about yourself to get a personalized plan."
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:textAlignment="center"/>
+        </LinearLayout>
 
         <!-- Age Input -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="Age">
+            android:hint="Age"
+            android:textColorHint="@color/text_secondary"
+            app:hintTextColor="@color/text_secondary"
+            app:boxBackgroundColor="@color/background_card"
+            app:boxStrokeColor="@color/primary_blue"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:textColor="@color/text_primary"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Gender Selection -->
@@ -50,7 +83,9 @@
             android:layout_height="wrap_content"
             android:text="Gender"
             android:layout_marginBottom="8dp"
-            android:textColor="@android:color/black"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
 
         <RadioGroup
             android:id="@+id/rgGender"
@@ -59,18 +94,22 @@
             android:orientation="horizontal"
             android:layout_marginBottom="16dp">
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Male"
+                android:textColor="@color/text_primary"
+                app:buttonTint="@color/primary_blue"
                 android:layout_weight="1"/>
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
+                android:textColor="@color/text_primary"
+                app:buttonTint="@color/primary_blue"
                 android:layout_weight="1"/>
         </RadioGroup>
 
@@ -86,13 +125,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:hint="Height (cm)">
+                android:hint="Height (cm)"
+                android:textColorHint="@color/text_secondary"
+                app:hintTextColor="@color/text_secondary"
+                app:boxBackgroundColor="@color/background_card"
+                app:boxStrokeColor="@color/primary_blue"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etHeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/text_primary"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Weight Input -->
@@ -101,19 +151,30 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:hint="Weight (kg)">
+                android:hint="Weight (kg)"
+                android:textColorHint="@color/text_secondary"
+                app:hintTextColor="@color/text_secondary"
+                app:boxBackgroundColor="@color/background_card"
+                app:boxStrokeColor="@color/primary_blue"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusBottomEnd="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/text_primary"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="24dp"/>
 
         <!-- Fitness Goal -->
         <TextView
@@ -121,31 +182,41 @@
             android:layout_height="wrap_content"
             android:text="Fitness Goal"
             android:layout_marginBottom="8dp"
-            android:textColor="@android:color/black"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
 
         <RadioGroup
             android:id="@+id/rgGoal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="32dp">
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbFatLoss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fat Loss"/>
+                android:text="Fat Loss"
+                android:textColor="@color/text_primary"
+                app:buttonTint="@color/primary_blue"
+                android:layout_marginBottom="4dp"/>
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbMuscleGain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Muscle Gain"/>
+                android:text="Muscle Gain"
+                android:textColor="@color/text_primary"
+                app:buttonTint="@color/primary_blue"
+                android:layout_marginBottom="4dp"/>
 
-            <RadioButton
+            <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/rbGeneralFitness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="General Fitness"
+                android:textColor="@color/text_primary"
+                app:buttonTint="@color/primary_blue"
                 android:checked="true"/>
         </RadioGroup>
 
@@ -156,7 +227,8 @@
             android:text="Create Plan"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:cornerRadius="8dp"/>
+            android:backgroundTint="@color/primary_blue"
+            app:cornerRadius="12dp"/>
 
         <!-- Loading Indicator -->
         <ProgressBar

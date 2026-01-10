@@ -49,35 +49,24 @@
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvMuscleGroup"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="4dp"
+                android:text="Muscle Group"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary" />
 
-                <TextView
-                    android:id="@+id/tvMuscleGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Muscle Group"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_secondary" />
-                
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" • "
-                    android:textColor="@color/text_tertiary"/>
-
-                <TextView
-                    android:id="@+id/tvDifficulty"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Difficulty"
-                    android:textSize="14sp"
-                    android:textColor="@color/gradient_orange_start"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tvDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Difficulty"
+                android:textSize="14sp"
+                android:textColor="@color/gradient_orange_start"
+                android:textStyle="bold" />
         </LinearLayout>
         
         <!-- Modern Arrow with gradient tint -->

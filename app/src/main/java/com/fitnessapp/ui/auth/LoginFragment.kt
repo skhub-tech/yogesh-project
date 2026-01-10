@@ -38,8 +38,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
+    private lateinit var loginContent: View
+    private lateinit var progressBar: View
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        loginContent = view.findViewById(R.id.loginContent)
+        progressBar = view.findViewById(R.id.progressBar)
+        
+        // Initial State: Show Loading, Hide Content to prevent flicker
+        showLoading(true)
 
         auth = FirebaseAuth.getInstance()
         Log.d("LoginFragment", "onViewCreated: Initializing Google Sign-In client")
@@ -56,19 +65,32 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             Log.e("LoginFragment", "Error configuring Google Sign-In", e)
         }
 
-        view.findViewById<Button>(R.id.btn_google_login).setOnClickListener {
+        view.findViewById<View>(R.id.btn_google_login).setOnClickListener {
             Log.d("LoginFragment", "Login button clicked")
             signIn()
+        }
+        
+        // IMPORTANT: Check session immediately
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            checkUserProfileAndNavigate()
+        } else {
+            // No user, show login content
+            showLoading(false)
         }
     }
 
     private fun signIn() {
+        showLoading(true)
         Log.d("LoginFragment", "Launching Sign-In Intent")
         val signInIntent = googleSignInClient.signInIntent
         signInLauncher.launch(signInIntent)
     }
+    
+    // ... (Result Launcher remains same) ...
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+        showLoading(true)
         Log.d("LoginFragment", "Authenticating with Firebase using Google credential")
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         auth.signInWithCredential(credential)
@@ -78,29 +100,34 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
                     checkUserProfileAndNavigate()
                 } else {
+                    showLoading(false) // Show Login UI again on failure
                     Log.e("LoginFragment", "Firebase Authentication Failed", task.exception)
                     Toast.makeText(context, "Authentication Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
     
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            checkUserProfileAndNavigate()
+    // Removed duplicate onStart check since we do it in onViewCreated to control UI state better
+    
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            progressBar.visibility = View.VISIBLE
+            loginContent.visibility = View.GONE
+        } else {
+            progressBar.visibility = View.GONE
+            loginContent.visibility = View.VISIBLE
         }
     }
 
     private fun checkUserProfileAndNavigate() {
         val user = auth.currentUser ?: return
+        
+        // Keep loading shown...
+        
         val db = FirebaseFirestore.getInstance()
         
         db.collection("users").document(user.uid).get()
             .addOnSuccessListener { document ->
-                // Check if document exists and has basic profile data (e.g., age is set)
-                // Note: User model default age is 0.
                 if (document.exists() && document.contains("age") && (document.getLong("age") ?: 0) > 0) {
                     Log.d("LoginFragment", "User profile found, navigating to Home")
                     val navOptions = androidx.navigation.NavOptions.Builder()
@@ -117,12 +144,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
             .addOnFailureListener { e ->
                 Log.e("LoginFragment", "Error checking user profile", e)
-                // Fallback to Setup on error to ensure we don't block user, or stay on Login?
-                // Better to go to Setup so they can try saving/overwriting.
-                val navOptions = androidx.navigation.NavOptions.Builder()
-                    .setPopUpTo(R.id.loginFragment, true)
-                    .build()
-                findNavController().navigate(R.id.setupProfileFragment, null, navOptions)
+                showLoading(false) // Show login so they can try again or just retry?
+                // Actually if profile check fails, we might still be logged in. 
+                // But let's show login screen or error state. 
+                // For now, revealing login screen allows them to maybe sign out/in again or just retry.
+                Toast.makeText(context, "Failed to load profile. Please try again.", Toast.LENGTH_SHORT).show()
             }
     }
 }

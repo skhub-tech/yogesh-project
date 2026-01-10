@@ -13,12 +13,18 @@ class UserRepository {
         return try {
             android.util.Log.d("UserRepository", "Saving user: ${user.uid}")
             kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
-                // Add a timeout of 10 seconds
-                kotlinx.coroutines.withTimeout(10000L) {
-                    db.collection("users").document(user.uid).set(user).await()
+                try {
+                    // Wait up to 5 seconds for server confirmation
+                    kotlinx.coroutines.withTimeout(5000L) {
+                        db.collection("users").document(user.uid).set(user).await()
+                    }
+                    android.util.Log.d("UserRepository", "User saved successfully (synced)")
+                } catch (e: kotlinx.coroutines.TimeoutCancellationException) {
+                    android.util.Log.w("UserRepository", "Save timed out, assuming offline/background sync")
+                    // Note: The Firestore SDK continues to retry in the background.
+                    // We return success so the UI doesn't block.
                 }
             }
-            android.util.Log.d("UserRepository", "User saved successfully")
             Result.success(true)
         } catch (e: Exception) {
             android.util.Log.e("UserRepository", "Error saving user", e)

@@ -25,6 +25,7 @@ class SetupProfileFragment : Fragment(R.layout.fragment_setup_profile) {
     private lateinit var rgGoal: RadioGroup
     private lateinit var btnSave: Button
     private lateinit var progressBar: ProgressBar
+    private lateinit var ivProfileImage: com.google.android.material.imageview.ShapeableImageView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,6 +35,16 @@ class SetupProfileFragment : Fragment(R.layout.fragment_setup_profile) {
         
         btnSave.setOnClickListener {
             saveProfile()
+        }
+        
+        // Load logged-in user's photo from Firebase Auth
+        val currentUser = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser
+        if (currentUser?.photoUrl != null) {
+             com.bumptech.glide.Glide.with(this)
+                .load(currentUser.photoUrl)
+                .placeholder(R.drawable.ic_person)
+                .error(R.drawable.ic_person)
+                .into(ivProfileImage)
         }
     }
 
@@ -45,6 +56,7 @@ class SetupProfileFragment : Fragment(R.layout.fragment_setup_profile) {
         rgGoal = view.findViewById(R.id.rgGoal)
         btnSave = view.findViewById(R.id.btnSaveProfile)
         progressBar = view.findViewById(R.id.progressBar)
+        ivProfileImage = view.findViewById(R.id.ivProfileImage)
     }
 
     private fun setupObservers() {
@@ -56,10 +68,42 @@ class SetupProfileFragment : Fragment(R.layout.fragment_setup_profile) {
         viewModel.saveStatus.observe(viewLifecycleOwner) { result ->
             result.onSuccess {
                 Toast.makeText(context, "Profile Saved!", Toast.LENGTH_SHORT).show()
-                // Navigate to Home
-                findNavController().navigate(R.id.homeFragment)
+                // Navigate back
+                if (findNavController().previousBackStackEntry != null) {
+                    findNavController().popBackStack()
+                } else {
+                    findNavController().navigate(R.id.homeFragment)
+                }
             }.onFailure { e ->
                 Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+        
+        // Observe user data to pre-fill fields for editing
+        viewModel.user.observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                // Only fill if fields are empty to avoid overwriting user edits on config change
+                if (etAge.text.isNullOrEmpty()) {
+                    etAge.setText(user.age.toString())
+                    etHeight.setText(user.heightCm.toString())
+                    etWeight.setText(user.weightKg.toString())
+                    
+                    // Set Gender
+                    if (user.gender.equals("Male", ignoreCase = true)) {
+                        rgGender.check(R.id.rbMale)
+                    } else if (user.gender.equals("Female", ignoreCase = true)) {
+                        rgGender.check(R.id.rbFemale)
+                    }
+                    
+                    // Set Goal
+                    when (user.fitnessGoal) {
+                         "fat_loss" -> rgGoal.check(R.id.rbFatLoss)
+                         "muscle_gain" -> rgGoal.check(R.id.rbMuscleGain)
+                         else -> rgGoal.check(R.id.rbGeneralFitness)
+                    }
+                    
+                    btnSave.text = "Update Profile"
+                }
             }
         }
     }
@@ -80,6 +124,11 @@ class SetupProfileFragment : Fragment(R.layout.fragment_setup_profile) {
 
         if (age == null || height == null || weight == null) {
             Toast.makeText(context, "Invalid number format", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (age <= 0 || height <= 0 || weight <= 0) {
+            Toast.makeText(context, "Please enter valid positive values", Toast.LENGTH_SHORT).show()
             return
         }
 

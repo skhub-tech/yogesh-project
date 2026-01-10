@@ -8,5 +8,10 @@ class FitnessApplication : Application() {
         super.onCreate()
         // Initialize Firebase
         FirebaseApp.initializeApp(this)
+        
+        // System Theme Support
+        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(
+            androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        )
     }
 }

@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Check for App Expiration
+        com.fitnessapp.utils.AppExpirationManager.checkAppExpiration(this)
+
         setContentView(R.layout.activity_main)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -46,7 +50,41 @@ class MainActivity : AppCompatActivity() {
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+        
+        // Setup Navigation Controller first
         navView.setupWithNavController(navController)
+        
+        // Overlay a custom listener to intercept Logout
+        navView.setNavigationItemSelectedListener { item ->
+            if (item.itemId == R.id.nav_logout) {
+                // Perform Logout
+                com.google.firebase.auth.FirebaseAuth.getInstance().signOut()
+                
+                // Google Sign Out
+                val gso = com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder(
+                    com.google.android.gms.auth.api.signin.GoogleSignInOptions.DEFAULT_SIGN_IN
+                ).build()
+                com.google.android.gms.auth.api.signin.GoogleSignIn.getClient(this, gso).signOut()
+
+                // Navigate to Login and clear backstack
+                navController.navigate(R.id.loginFragment, null, 
+                    androidx.navigation.NavOptions.Builder()
+                        .setPopUpTo(R.id.homeFragment, true) // Pop everything up to home (or root)
+                        .setLaunchSingleTop(true)
+                        .build()
+                )
+                
+                drawerLayout.closeDrawers()
+                true
+            } else {
+                // Default Navigation behavior
+                val handled = androidx.navigation.ui.NavigationUI.onNavDestinationSelected(item, navController)
+                if (handled) {
+                    drawerLayout.closeDrawers()
+                }
+                handled
+            }
+        }
         
         val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_nav_view)
         bottomNav.setupWithNavController(navController)
@@ -91,6 +129,21 @@ class MainActivity : AppCompatActivity() {
                  navUsername.text = "Fitness User"
                  navUserEmail.text = "Please Login"
                  navUserImage.setImageResource(R.drawable.ic_person)
+            }
+            
+            // Edit Profile Click Listener
+            val btnEditProfile = headerView.findViewById<android.view.View>(R.id.btn_edit_profile)
+            btnEditProfile.setOnClickListener {
+                if (user != null) {
+                    val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+                    drawerLayout.closeDrawers()
+                    
+                    val navHostFragment = supportFragmentManager
+                        .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+                    navHostFragment.navController.navigate(R.id.setupProfileFragment)
+                } else {
+                    android.widget.Toast.makeText(this, "Please login first", android.widget.Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
